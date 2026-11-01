@@ -29,6 +29,8 @@
 <script src="{{ $background.RelPermalink }}" defer></script>
 {{ $masonry := resources.Get "masonry.js" | minify | fingerprint }}
 <script src="{{ $masonry.RelPermalink }}" defer></script>
+{{ $touch := resources.Get "card-touch.js" | minify | fingerprint }}
+<script src="{{ $touch.RelPermalink }}" defer></script>
 {{ if hugo.IsServer }}{{ partial "preview-toggle.html" . }}{{ end }}
 </body>
 </html>

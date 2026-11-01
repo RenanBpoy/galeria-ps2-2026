@@ -25,6 +25,11 @@ body[data-theme="ivorysidebar"] .project .project-cover-link{opacity:1}
 @media(prefers-reduced-motion:reduce){.project-cover-link .cover-content,.project-cover-link .anatomy-hover,.cover-link-arrow{transition:none}.project-cover-link:is(:hover,:focus-visible) .cover-content,.project-cover-link:is(:hover,:focus-visible) .anatomy-hover{transform:none}}
 @media(hover:none){.project-cover-link:hover:not(:focus-visible) .anatomy-hover{opacity:0}.project-cover-link:hover:not(:focus-visible) .cover-content{transform:none}}
 @media(hover:none){.project-cover-link:hover:not(:focus-visible)::before{opacity:0}}
+.project-cover-link.is-touching .anatomy-hover{opacity:.55;transform:translate(0,0) scale(1);transition-duration:.12s}
+.project-cover-link.is-touching::before{opacity:.75;transition-duration:.12s}
+.project-cover-link.is-touching .cover-content{transform:scale(1.015);transition-duration:.12s}
+.project-cover-link.is-touching .cover-link-arrow{transform:translate(2px,-2px);background:var(--accent);color:var(--surface);transition-duration:.12s}
+@media(prefers-reduced-motion:reduce){.project-cover-link.is-touching .cover-content,.project-cover-link.is-touching .anatomy-hover{transform:none;transition:none}.project-cover-link.is-touching::before,.project-cover-link.is-touching .cover-link-arrow{transition:none}}
 @media(prefers-reduced-motion:reduce){.project-cover-link::before{transition:none}}
 
 .cover-link-arrow svg{display:block;width:13px;height:13px;flex:none}
