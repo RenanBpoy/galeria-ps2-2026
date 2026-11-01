@@ -1,0 +1,115 @@
+/* Identidade visual do Atlas lateral, compartilhada pela home e pelos projetos. */
+.intro-edition{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:0;margin-bottom:18px;color:var(--accent)}
+.intro-edition .eyebrow{margin:0;font-size:9px;letter-spacing:1.6px}
+.intro-edition-year{flex:none;font:400 25px/1 var(--heading);letter-spacing:-.5px}
+.intro-main>.intro-description{margin-top:22px}
+:root{--bg:#f1eee1;--surface:#fffdf4;--ink:#353c33;--muted:#64705c;--accent:#536749;--secondary:#ccd1b8;--line:#d1d0c3;--radius:3px;--gap:28px;--columns:3;--heading:Georgia,'Times New Roman',serif;--scale:1;--texture-opacity:.4;--texture-size:850px;--plate-repeat:no-repeat;--plate-position:right;--side-image:var(--scan-dog);--side-opacity:.22;--side-size:360px;--side-position:bottom}
+.project .cover>div[role=img]{width:100%;height:100%}
+.detail-description p+p{margin-top:1em}.detail-description ul,.detail-description ol{padding-left:1.4em}.detail-description a{color:var(--accent)}
+@media(max-width:700px){.development-grid:has(>.detail-panel:only-child){grid-template-columns:1fr}}
+
+/* Somente a tinta da gravura, com o papel removido por filtro SVG. */
+.atlas-filter-defs{position:absolute;overflow:hidden;pointer-events:none}
+body[data-theme="ivorysidebar"] .project .project-cover-link{opacity:1}
+.project-cover-link{display:flex;text-decoration:none;cursor:pointer;color:var(--ink);background:var(--surface)}
+.project-cover-link .cover-content{width:100%;height:100%;transition:transform .85s cubic-bezier(.16,1,.3,1)}
+.project-cover-link::before{content:"";position:absolute;inset:0;z-index:1;background:#fff;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.project-cover-link .anatomy-hover{position:absolute;right:-5%;bottom:-5%;width:68%;height:108%;z-index:2;opacity:0;transform:translate(8%,8%) scale(.94);transition:opacity .7s ease,transform 1s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.anatomy-hover svg{display:block;width:100%;height:100%;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 8%,#000 82%,transparent),linear-gradient(to bottom,#000 65%,transparent);mask-composite:intersect}
+.cover-link-arrow{position:absolute;z-index:2;top:10px;right:10px;display:grid;place-items:center;width:25px;height:25px;border:1px solid #53674940;border-radius:50%;background:var(--surface);color:var(--accent);font-size:15px;transition:transform .7s cubic-bezier(.16,1,.3,1),background .4s ease,color .4s ease;pointer-events:none}
+.project-cover-link:is(:hover,:focus-visible) .anatomy-hover{opacity:.55;transform:translate(0,0) scale(1)}
+.project-cover-link:is(:hover,:focus-visible)::before{opacity:.75}
+.project-cover-link:is(:hover,:focus-visible) .cover-content{transform:scale(1.015)}
+.project-cover-link:is(:hover,:focus-visible) .cover-link-arrow{transform:translate(2px,-2px);background:var(--accent);color:var(--surface)}
+.project-cover-link:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+@media(prefers-reduced-motion:reduce){.project-cover-link .cover-content,.project-cover-link .anatomy-hover,.cover-link-arrow{transition:none}.project-cover-link:is(:hover,:focus-visible) .cover-content,.project-cover-link:is(:hover,:focus-visible) .anatomy-hover{transform:none}}
+@media(hover:none){.project-cover-link:hover:not(:focus-visible) .anatomy-hover{opacity:0}.project-cover-link:hover:not(:focus-visible) .cover-content{transform:none}}
+@media(hover:none){.project-cover-link:hover:not(:focus-visible)::before{opacity:0}}
+@media(prefers-reduced-motion:reduce){.project-cover-link::before{transition:none}}
+
+.cover-link-arrow svg{display:block;width:13px;height:13px;flex:none}
+
+/* Transição ampla também no centro das quatro bordas, dentro da área da gravura. */
+.anatomy-background i{
+  -webkit-mask-image:radial-gradient(ellipse closest-side at center,#000 32%,rgba(0,0,0,.75) 50%,rgba(0,0,0,.2) 70%,transparent 90%),linear-gradient(to right,transparent,#000 27%,#000 73%,transparent),linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent);
+  mask-image:radial-gradient(ellipse closest-side at center,#000 32%,rgba(0,0,0,.75) 50%,rgba(0,0,0,.2) 70%,transparent 90%),linear-gradient(to right,transparent,#000 27%,#000 73%,transparent),linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+}
+
+/* A sidebar usa a mesma gravura sem papel e sem margens dos cards. */
+body[data-theme="ivorysidebar"] .intro-inner::before,.detail-index::after{display:none}
+.sidebar-engraving{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:min(calc(var(--side-size,360px) * .72),calc(100% - 36px));z-index:-1;opacity:var(--side-opacity,.22);pointer-events:none}
+.sidebar-engraving svg{display:block;width:100%;height:auto;overflow:hidden}
+
+/* Posições independentes para a lateral da home e a dos projetos. */
+body[data-theme="ivorysidebar"] .intro-inner{padding-bottom:220px}
+.intro-inner>.sidebar-engraving{position:absolute;left:calc(-1 * var(--sidebar-inset));right:auto;bottom:-28px;transform:none;width:calc(100% + var(--sidebar-inset) + 12px);max-width:none;margin:0;z-index:-1;opacity:.24;mix-blend-mode:multiply}
+.detail-index>.sidebar-engraving{width:min(calc(var(--side-size,360px) * .8),calc(100% - 16px))}
+
+/* Composição espaçada com todas as gravuras na tonalidade do site. */
+body[data-theme="ivorysidebar"] .anatomy-background{top:-110px}
+.anatomy-background i{width:clamp(400px,66%,740px);height:560px;filter:grayscale(1) sepia(.4) saturate(.45)}
+.anatomy-background .plate-dog{left:-5%;top:0;transform:rotate(-8deg)}
+.anatomy-background .plate-leonardo{background-image:var(--scan-leonardo);right:-4%;top:190px;transform:rotate(5deg)}
+.anatomy-background .plate-cat{left:2%;right:auto;top:380px;transform:rotate(-5deg)}
+.anatomy-background .plate-sheep{left:auto;right:-2%;top:570px;transform:rotate(4deg)}
+.anatomy-background .plate-cow{left:-3%;right:auto;top:760px;transform:rotate(-3deg)}
+.anatomy-background .plate-horse{left:auto;right:-3%;top:950px;transform:rotate(4deg)}
+@media(max-width:800px){
+  .anatomy-background i{width:100vw;height:520px}
+  .anatomy-background .plate-dog{left:-8%;top:0}
+  .anatomy-background .plate-leonardo{right:-8%;top:300px}
+  .anatomy-background .plate-cat{left:-6%;top:600px}
+  .anatomy-background .plate-sheep{right:-6%;top:900px}
+  .anatomy-background .plate-cow{left:-6%;right:auto;top:1200px}
+  .anatomy-background .plate-horse{left:auto;right:-6%;top:1500px}
+}
+
+/* Preserva os traços finos do contorno felino e dissolve só as margens do papel. */
+.sidebar-engraving .cat-engraving{transform:scaleX(-1);transform-origin:center}
+
+/* A sequência continua sem acumular ciclos no mesmo trecho. */
+.anatomy-background{--anatomy-cycle-step:1140px}
+.anatomy-cycle{position:absolute;inset:calc(var(--cycle) * var(--anatomy-cycle-step)) 0 auto;height:calc(var(--anatomy-cycle-step) + 560px)}
+.anatomy-background .anatomy-cycle-alternate .plate-dog{left:auto;right:-5%;transform:rotate(5deg)}
+.anatomy-background .anatomy-cycle-alternate .plate-leonardo{right:auto;left:-4%;transform:rotate(-5deg)}
+.anatomy-background .anatomy-cycle-alternate .plate-cat{left:auto;right:2%;transform:rotate(5deg)}
+.anatomy-background .anatomy-cycle-alternate .plate-sheep{right:auto;left:-2%;transform:rotate(-4deg)}
+.anatomy-background .anatomy-cycle-alternate .plate-cow{left:auto;right:-3%;transform:rotate(3deg)}
+.anatomy-background .anatomy-cycle-alternate .plate-horse{right:auto;left:-3%;transform:rotate(-4deg)}
+@media(max-width:800px){
+  .anatomy-background{--anatomy-cycle-step:1800px}
+  .anatomy-background .anatomy-cycle-alternate .plate-dog{right:-8%}
+  .anatomy-background .anatomy-cycle-alternate .plate-leonardo{left:-8%}
+  .anatomy-background .anatomy-cycle-alternate .plate-cat{right:-6%}
+  .anatomy-background .anatomy-cycle-alternate .plate-sheep{left:-6%}
+  .anatomy-background .anatomy-cycle-alternate .plate-cow{left:auto;right:-6%}
+  .anatomy-background .anatomy-cycle-alternate .plate-horse{right:auto;left:-6%}
+}
+
+/* A gravura felina se dissolve no papel e continua além do rodapé. */
+:is(.intro-inner,.detail-index)>.sidebar-engraving .cat-engraving{-webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent);mask-image:linear-gradient(to bottom,#000 58%,transparent)}
+
+/* O recorte felino começa na borda física da sidebar, sem margem lateral. */
+body[data-theme="ivorysidebar"] .intro{--sidebar-inset:34px;overflow:clip}
+body[data-theme="ivorysidebar"] .intro-inner{overflow:visible}
+@media(min-width:1700px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:46px}}
+@media(max-width:1200px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:26px}}
+@media(max-width:800px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:28px}}
+@media(max-width:480px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:22px}}
+
+/* Preserva as imagens reais completas, inclusive logos e capturas de tela. */
+.project-cover-link .cover-content>img{object-fit:contain;background:var(--surface)}
+
+/* Capas reais usam sua proporção original, sem faixas laterais ou cortes. */
+body[data-theme="ivorysidebar"] .project .project-cover-link.project-cover-real{display:block;aspect-ratio:auto}
+.project-cover-real .cover-content{height:auto}
+.project-cover-real .cover-content>img{display:block;width:100%;height:auto;object-fit:initial}
+
+/* Alturas livres: cada card entra na coluna mais curta. Sem JS, mantém as colunas originais. */
+body[data-theme="ivorysidebar"] .project-grid{--masonry-columns:var(--columns);--masonry-gap:40px}
+body[data-theme="ivorysidebar"] .project-grid.masonry-ready{position:relative;display:block;columns:auto}
+body[data-theme="ivorysidebar"] .project-grid.masonry-ready>.project{position:absolute;left:var(--masonry-left);top:var(--masonry-top);width:var(--masonry-width);min-width:0;margin:0}
+@media(max-width:1200px){body[data-theme="ivorysidebar"] .project-grid{--masonry-columns:2}}
+@media(max-width:480px){body[data-theme="ivorysidebar"] .project-grid{--masonry-columns:1}}

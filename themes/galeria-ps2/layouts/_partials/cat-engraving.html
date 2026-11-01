@@ -1,0 +1,7 @@
+<svg class="cat-engraving" viewBox="100 0 340 340" focusable="false">
+  <defs>
+    <clipPath id="atlas-cat-detail"><path d="M108 112C105 91 119 66 140 55L149 13C162 4 177 12 181 28L183 10C206 3 216 24 210 53C229 64 232 85 237 103L240 120C280 130 324 115 370 112L445 111V345H240V260C216 228 208 195 202 162L186 130C160 137 137 130 126 120Z"/></clipPath>
+    <filter id="atlas-cat-ink" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feColorMatrix in="SourceGraphic" type="luminanceToAlpha" result="paper"/><feComponentTransfer in="paper" result="ink"><feFuncA type="linear" slope="-1.9" intercept="1.6"/></feComponentTransfer><feComposite in="ink" in2="SourceAlpha" operator="in" result="clean-ink"/><feFlood flood-color="#42513a" result="color"/><feComposite in="color" in2="clean-ink" operator="in"/></filter>
+  </defs>
+  <image href="{{ "images/gravura-cat.jpg" | relURL }}" width="770" height="599" filter="url(#atlas-cat-ink)" clip-path="url(#atlas-cat-detail)"/>
+</svg>

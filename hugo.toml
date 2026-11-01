@@ -1,0 +1,10 @@
+baseURL = 'https://renanbpoy.github.io/galeria-ps2-2026/'
+locale = 'pt-BR'
+defaultContentLanguage = 'pt-br'
+title = 'Galeria de Projeto de Software II'
+theme = 'galeria-ps2'
+
+disableKinds = ['taxonomy', 'term', 'RSS', 'section']
+
+[params]
+  author = 'Renan'

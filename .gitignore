@@ -1,0 +1,13 @@
+public/
+resources/
+.hugo_build.lock
+.tools/
+
+# Utilitários e exemplo de cópia usados somente no Windows local.
+*.cmd
+MODELO-DE-PROJETO/
+
+# Arquivos auxiliares do sistema operacional.
+.DS_Store
+Thumbs.db
+Desktop.ini

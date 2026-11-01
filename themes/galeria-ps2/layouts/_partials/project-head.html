@@ -1,0 +1,60 @@
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="{{ .Params.resumo | default .Params.descricao | default .Title }}">
+<title>{{ .Title }}{{ if not .IsHome }} · {{ site.Home.Title }}{{ end }}</title>
+<style>{{ (resources.Get "modelo-1.css").Content | safeCSS }}</style>
+<style>{{ (resources.Get "modelo-2.css").Content | safeCSS }}</style>
+<style id="archive-assets">:root{--scan-leonardo:url("{{ "images/gravura-leonardo.jpg" | relURL }}");--scan-notes:url("{{ "images/gravura-notes.jpg" | relURL }}");--scan-dog:url("{{ "images/gravura-dog.jpg" | relURL }}");--scan-stubbs:url("{{ "images/gravura-stubbs.jpg" | relURL }}");}</style>
+<style id="archive-styles">
+.archive-bar{background:#f5eddf;border-top-color:#e3d6c1}.archive-palette .exhibition{position:relative;isolation:isolate;background:var(--bg);background-image:radial-gradient(ellipse at 0 20%,#8b62271a,transparent 55%),radial-gradient(ellipse at 90% 80%,#684b2220,transparent 65%)}
+.archive-palette .exhibition:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:var(--texture-opacity,.4);background-image:var(--archive-image);background-size:var(--texture-size,650px) auto;background-repeat:repeat;background-position:center top;mix-blend-mode:multiply;filter:sepia(.65) saturate(.65);}
+.archive-palette .intro{background:color-mix(in srgb,var(--bg) 90%,transparent);border-right:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.archive-palette .intro h1{font-weight:400;font-size:43px}.archive-palette .identity-symbol{font-family:Georgia,serif}.archive-palette .gallery-heading{background:color-mix(in srgb,var(--surface) 94%,transparent);padding:21px 23px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 4px 16px #34220e0a}.archive-palette .gallery-heading h2{font-size:30px;font-weight:400}
+.archive-palette .anatomy-banner{display:flex;min-height:210px;border:0;margin:0 0 26px;position:relative;align-items:flex-start;padding:20px 0}.archive-palette .anatomy-banner>div:first-child{background:color-mix(in srgb,var(--bg) 93%,transparent);padding:16px 22px;max-width:68%;border-left:2px solid var(--accent)}.archive-palette .anatomy-banner h2{font-size:30px;max-width:360px;line-height:1.15}.archive-palette .anatomy-banner p{max-width:300px}.archive-palette .anatomy-seal{display:none}
+.archive-palette .project{background:var(--surface);box-shadow:0 5px 18px #3f2a1618;border-color:color-mix(in srgb,var(--accent) 28%,transparent)}.archive-palette .project h3{font-size:24px;font-weight:400}.archive-palette .project-meta{letter-spacing:1.7px}.archive-palette .project .cover{aspect-ratio:1.5}.archive-palette .vet-art{background:color-mix(in srgb,var(--surface) 70%,var(--secondary))}.archive-palette .gallery-footer,.archive-palette .anatomy-references,.archive-palette .image-rights{background:var(--surface);padding:15px 20px;border:1px solid var(--line)}.archive-palette .add-project{background:var(--surface)}
+body[data-theme="manuscript"]{--archive-image:var(--scan-leonardo)}body[data-theme="manuscript"] .project{padding:8px 8px 0}body[data-theme="manuscript"] .project-body{padding:20px 14px}body[data-theme="manuscript"] .project h3{font-style:italic}
+body[data-theme="engraving"]{--archive-image:var(--scan-stubbs)}body[data-theme="engraving"] .exhibition:before{background-repeat:repeat-y;background-position:right 35px;background-size:calc(var(--texture-size) * 1.5) auto}body[data-theme="engraving"] .project{border-top:3px double var(--accent)}body[data-theme="engraving"] .project-grid{columns:2}body[data-theme="engraving"] .project .cover{aspect-ratio:1.9}
+body[data-theme="ivory"]{--archive-image:var(--scan-dog)}body[data-theme="ivory"] .project{border-radius:var(--radius);box-shadow:none}body[data-theme="ivory"] .project-meta{border-bottom:1px solid var(--line);padding-bottom:10px}body[data-theme="ivory"] .anatomy-banner>div:first-child{border-left:0;border-bottom:2px solid var(--accent)}
+body[data-theme="collage"]{--archive-image:var(--scan-notes),var(--scan-leonardo)}body[data-theme="collage"] .exhibition:before{background-size:var(--texture-size) auto,calc(var(--texture-size) * 1.45) auto;background-position:left top,right 180px;background-repeat:repeat-y; background-blend-mode:multiply}body[data-theme="collage"] .project{border:0;outline:1px solid var(--line);outline-offset:5px;margin-top:6px}body[data-theme="collage"] .project-id{border:1px solid var(--accent);padding:2px 5px}body[data-theme="collage"] .anatomy-banner h2{font-style:italic}
+.image-rights{margin-top:20px;font-size:11px;line-height:1.8;color:var(--muted)}.image-rights summary{color:var(--accent);cursor:pointer}.image-rights ul{padding-left:20px}.image-rights li{margin:10px 0}.image-rights p{margin-top:10px}.archive-control-note{font-size:11px;color:#64715d;margin-top:7px}
+@media(max-width:800px){.archive-palette .intro{border-right:0}.archive-palette .anatomy-banner{min-height:210px}.archive-palette .anatomy-banner>div:first-child{max-width:80%}.archive-palette .gallery-heading{padding:17px}.archive-palette .gallery-heading h2{font-size:25px}}
+@media(max-width:480px){.archive-palette .anatomy-banner>div:first-child{max-width:90%;padding:12px 15px}.archive-palette .anatomy-banner h2{font-size:27px}.archive-palette .anatomy-banner{min-height:225px}.archive-palette .gallery-heading{gap:8px}.archive-palette .gallery-count{white-space:normal}.archive-palette .gallery-subtitle{font-size:11px}body[data-theme="engraving"] .project-grid{columns:1}.image-rights{overflow-wrap:anywhere}}
+@media print{.image-rights{display:none}.archive-palette .exhibition:before{opacity:.15}}
+</style>
+<style id="ivory-assets">:root{--scan-cat:url("{{ "images/gravura-cat.jpg" | relURL }}");--scan-sheep:url("{{ "images/gravura-sheep.jpg" | relURL }}");--scan-cow:url("{{ "images/gravura-cow.jpg" | relURL }}");}</style>
+<style id="ivory-composition">
+/* Atlas em marfim: pranchas individuais, sem mosaico. */
+.single-plate .exhibition:before{background-repeat:var(--plate-repeat,no-repeat);background-size:min(var(--texture-size,1100px),95vw) auto;background-position:var(--plate-position,right) 130px;filter:sepia(.3) saturate(.4);}
+.single-plate .project{box-shadow:none}.single-plate .project-meta{padding-bottom:10px;border-bottom:1px solid var(--line)}.single-plate .anatomy-banner>div:first-child{border-left:0;border-bottom:2px solid var(--accent)}
+body[data-theme="ivorycat"]{--archive-image:var(--scan-cat)}body[data-theme="ivorysheep"]{--archive-image:var(--scan-sheep)}body[data-theme="ivorycow"]{--archive-image:var(--scan-cow)}body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]){--archive-image:var(--scan-dog),var(--scan-cat),var(--scan-sheep)}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .exhibition:before{background-repeat:no-repeat;background-size:min(var(--texture-size),75vw) auto,min(calc(var(--texture-size) * .7),65vw) auto,min(calc(var(--texture-size) * .85),70vw) auto;background-position:right 110px,left 900px,right 1600px;}
+body[data-theme="ivorycow"] .exhibition:before{background-position:var(--plate-position,right) 80px;}
+@media(max-width:800px){.single-plate .exhibition:before{background-position:center 320px;background-size:min(var(--texture-size),150vw) auto}body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .exhibition:before{background-size:95vw auto,95vw auto,95vw auto;background-position:center 450px,center 1400px,center 2300px}}
+@media(max-width:480px){.single-plate .exhibition:before{background-position:center 650px}body[data-theme="ivorycow"] .exhibition:before{background-position:center 620px}body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .exhibition:before{background-position:center 600px,center 1500px,center 2400px}}
+</style>
+<style id="multispecies-composition">
+.anatomy-background{display:none}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .exhibition:before{background-image:none}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .gallery{position:relative;isolation:isolate}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .anatomy-banner{display:none}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .anatomy-background{display:block;position:absolute;inset:160px -25px 0;z-index:-1;overflow:hidden;pointer-events:none;opacity:var(--texture-opacity,.4);mix-blend-mode:multiply}
+.anatomy-background i{position:absolute;display:block;background-repeat:no-repeat;background-size:contain;background-position:center;filter:sepia(.4) saturate(.4);mix-blend-mode:multiply;width:calc(var(--texture-size)*.65);height:500px}
+.anatomy-background .plate-dog{background-image:var(--scan-dog);left:-90px;top:0;transform:rotate(-10deg)}
+.anatomy-background .plate-cat{background-image:var(--scan-cat);right:-70px;top:160px;transform:rotate(8deg)}
+.anatomy-background .plate-sheep{background-image:var(--scan-sheep);left:-80px;top:560px;transform:rotate(-8deg)}
+.anatomy-background .plate-cow{background-image:var(--scan-cow);right:-30px;top:850px}
+.anatomy-background .plate-horse{background-image:var(--scan-stubbs);left:15%;top:1100px;transform:rotate(-5deg)}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .project-grid{column-gap:40px}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .project{margin-bottom:40px;background:color-mix(in srgb,var(--surface) 82%,transparent);box-shadow:0 3px 16px #34220e0d}
+body:is([data-theme="ivoryplates"],[data-theme="ivorysidebar"]) .project .cover{opacity:.86}
+@media(max-width:800px){.anatomy-background i{width:85vw}.anatomy-background .plate-cat{top:650px}.anatomy-background .plate-sheep{top:1300px}.anatomy-background .plate-cow{top:2000px}.anatomy-background .plate-horse{top:2600px;left:0}}
+</style>
+<style id="sidebar-anatomy-style">
+body[data-theme="ivorysidebar"] .gallery{overflow:clip}
+body[data-theme="ivorysidebar"] .intro-inner{position:sticky;isolation:isolate;overflow:hidden}
+body[data-theme="ivorysidebar"] .intro-inner:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:var(--side-image);background-size:var(--side-size) auto;background-position:center var(--side-position);background-repeat:no-repeat;opacity:var(--side-opacity);mix-blend-mode:multiply;filter:sepia(.4) saturate(.4)}
+body[data-theme="ivorysidebar"] .intro-description,body[data-theme="ivorysidebar"] .schedule,body[data-theme="ivorysidebar"] .intro-footer{background:color-mix(in srgb,var(--bg) 65%,transparent)}
+</style>
+
+<style>{{ (resources.Get "galeria.css").Content | safeCSS }}</style>

@@ -1,0 +1,19 @@
+<button class="background-preview-toggle" id="background-preview-toggle" type="button" aria-controls="project-grid" aria-pressed="false">Ocultar projetos</button>
+<style>
+.background-preview-toggle{position:fixed;right:20px;bottom:20px;z-index:50;border:1px solid var(--accent);border-radius:8px;padding:11px 17px;background:var(--surface);color:var(--accent);font:600 13px/1.3 var(--body);box-shadow:0 4px 18px #353c3320}
+.background-preview-toggle:hover{background:var(--accent);color:var(--surface)}
+.preview-hide-projects .project-grid{visibility:hidden;pointer-events:none}
+</style>
+<script>
+(() => {
+  const button = document.getElementById('background-preview-toggle');
+  const grid = document.getElementById('project-grid');
+  button.addEventListener('click', () => {
+    const hidden = document.documentElement.classList.toggle('preview-hide-projects');
+    grid.inert = hidden;
+    grid.setAttribute('aria-hidden', String(hidden));
+    button.setAttribute('aria-pressed', String(hidden));
+    button.textContent = hidden ? 'Mostrar projetos' : 'Ocultar projetos';
+  });
+})();
+</script>

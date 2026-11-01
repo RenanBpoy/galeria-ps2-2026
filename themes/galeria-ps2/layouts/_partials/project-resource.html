@@ -1,0 +1,14 @@
+{{- $url := "" -}}
+{{- $page := .page -}}
+{{- with .file -}}
+  {{- if or (strings.HasPrefix . "https://") (strings.HasPrefix . "http://") -}}
+    {{- $url = . -}}
+  {{- else -}}
+    {{- with $page.Resources.GetMatch . -}}
+      {{- $url = .RelPermalink -}}
+    {{- else -}}
+      {{- errorf "Arquivo %q não encontrado na pasta do projeto %s. Confira o nome informado em %s." . $page.Title $page.File.Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

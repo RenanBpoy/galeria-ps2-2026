@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>{{ partial "project-head.html" . }}</head>
+<body class="archive-palette single-plate" data-theme="ivorysidebar">
+{{ partial "dog-filter.html" . }}
+{{ $projects := (where site.RegularPages "Section" "projetos").ByWeight }}
+<main class="exhibition" id="exhibition">
+  <aside class="intro" aria-label="Sobre a disciplina"><div class="intro-inner">
+    <div class="intro-main"><div class="intro-edition"><p class="eyebrow">Mostra semestral</p>{{ with .Params.semestre }}<span class="intro-edition-year" aria-label="Semestre {{ . }}">{{ . }}</span>{{ end }}</div><h1>{{ .Title }}</h1>{{ with .Params.descricao }}<p class="intro-description">{{ . }}</p>{{ end }}</div>
+    {{ with .Params.apresentacoes }}<section class="schedule" aria-labelledby="schedule-title"><h2 class="small-label" id="schedule-title">Apresentações:</h2><div class="schedule-list">{{ range $index, $item := . }}<div class="schedule-item"><div class="calendar-icon" aria-hidden="true"><span>{{ printf "%02d" (add $index 1) }}</span></div><div><strong>{{ .data }}</strong>{{ with .local }}<p>{{ . }}</p>{{ end }}</div></div>{{ end }}</div></section>{{ end }}
+    {{ with .Params.instituicao }}<footer class="intro-footer"><div class="intro-rule"></div><p>{{ . }}</p></footer>{{ end }}
+    <span class="sidebar-engraving" aria-hidden="true">{{ partial "cat-engraving.html" . }}</span>
+  </div></aside>
+  <section class="gallery" aria-labelledby="gallery-title">
+    <div class="anatomy-background" aria-hidden="true"><div class="anatomy-cycle" style="--cycle:0"><i class="plate-dog"></i><i class="plate-leonardo"></i><i class="plate-cat"></i><i class="plate-sheep"></i><i class="plate-cow"></i><i class="plate-horse"></i></div></div>
+    <div class="gallery-heading"><div>{{ with .Params.chamada }}<p class="eyebrow">{{ . }}</p>{{ end }}<h2 id="gallery-title">{{ .Params.titulo_galeria | default "Projetos em exposição" }}</h2>{{ with .Params.subtitulo_galeria }}<p class="gallery-subtitle">{{ . }}</p>{{ end }}</div></div>
+    <div class="project-grid" id="project-grid">
+    {{ range $index, $project := $projects }}
+      {{ $cover := partial "project-resource.html" (dict "page" . "file" .Params.capa) }}
+      <article class="project"><a class="cover project-cover-link{{ if $cover }} project-cover-real{{ end }}" href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir página de {{ .Title }} (abre em outra aba)"><div class="cover-content">{{ if $cover }}<img src="{{ $cover }}" alt="" loading="lazy">{{ else }}{{ partial "project-cover.html" . }}{{ end }}</div><span class="anatomy-hover" aria-hidden="true">{{ partial "dog-detail.html" . }}</span><span class="cover-link-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <div class="project-body"><div class="project-meta" aria-hidden="true"></div><h3>{{ .Title }}</h3><p class="project-description">{{ .Params.resumo }}</p></div>
+      </article>
+    {{ end }}
+    </div>
+    {{ partial "references.html" . }}
+  </section>
+</main>
+{{ $background := resources.Get "background.js" | minify | fingerprint }}
+<script src="{{ $background.RelPermalink }}" defer></script>
+{{ $masonry := resources.Get "masonry.js" | minify | fingerprint }}
+<script src="{{ $masonry.RelPermalink }}" defer></script>
+{{ if hugo.IsServer }}{{ partial "preview-toggle.html" . }}{{ end }}
+</body>
+</html>
