@@ -99,6 +99,12 @@ body[data-theme="ivorysidebar"] .intro-inner{overflow:visible}
 @media(max-width:800px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:28px}}
 @media(max-width:480px){body[data-theme="ivorysidebar"] .intro{--sidebar-inset:22px}}
 
+/* No celular, reserva o espaço da gravura abaixo das apresentações. */
+@media(max-width:800px){
+  body[data-theme="ivorysidebar"] .intro-inner{padding-bottom:0}
+  .intro-inner>.sidebar-engraving{display:block;position:relative;grid-column:1/-1;bottom:auto;margin-top:16px;margin-bottom:-28px}
+}
+
 /* Preserva as imagens reais completas, inclusive logos e capturas de tela. */
 .project-cover-link .cover-content>img{object-fit:contain;background:var(--surface)}
 
