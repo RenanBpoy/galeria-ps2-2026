@@ -42,6 +42,7 @@ A parte entre as linhas `---` contém os campos do projeto. A descrição comple
 | `draft` | `true` esconde o projeto; `false` permite sua publicação. |
 | `capa` | Nome do arquivo da capa na mesma pasta, como `capa.jpg`. |
 | `video` | Nome do arquivo de vídeo, como `video.mp4`. |
+| `previa_video` | Imagem mostrada antes do play, como `previa-video.jpg`. Se vazia, será usada a capa do projeto. |
 | `apresentacao` | Link completo para a apresentação. |
 | `acesso` | Link completo para a aplicação. |
 | `roteiro_testes` | Link completo para o roteiro de testes. |

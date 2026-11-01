@@ -10,6 +10,7 @@ acesso: "https://inpsyght.vercel.app/"
 roteiro_testes: "https://docs.google.com/document/d/1g70HSDKgVyMAwxv29-rQruLunVCxbK123FR5a4OxT-4"
 fonte: "https://elc1074.github.io/2025b/portfolio/group3/"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 tecnologias:
   - "Front-end: Next + TailwindCSS"
   - "Back-end: Node + Strapi"

@@ -5,6 +5,7 @@ weight: 80
 draft: false
 capa: "capa.png"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 apresentacao: "https://docs.google.com/presentation/d/1CRMIqvd1tIawJ8OXFM496JM2k8BB_LVouxoBKQ9p4jQ/edit?usp=sharing"
 acesso: "https://projetosoftware2.vercel.app/"
 roteiro_testes: ""

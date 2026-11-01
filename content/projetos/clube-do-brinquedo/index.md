@@ -5,6 +5,7 @@ weight: 60
 draft: false
 capa: "capa.jpg"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 apresentacao: "https://www.canva.com/design/DAG5qR0tOVM/dVeoLMVdG6wPkdBf_6RWIA/edit"
 acesso: "https://drive.google.com/file/d/19u2Ok8u6XPWQ41NGxilPEJqWGGFsKN21/view?usp=sharing"
 roteiro_testes: "https://docs.google.com/document/d/12KxLfwxIkbdWzgPolxrAlUQRQqDNxTdLzq37KFu_9KY/edit?tab=t.0"

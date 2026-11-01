@@ -11,6 +11,8 @@ draft: true
 # Se não houver capa ou vídeo, deixe as aspas vazias.
 capa: ""
 video: ""
+# Imagem exibida antes do play. Se ficar vazia, será usada a capa do projeto.
+previa_video: ""
 
 # Preencha os links completos, começando com https://. Campos vazios não aparecem.
 apresentacao: ""

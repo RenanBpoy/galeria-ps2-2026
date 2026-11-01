@@ -10,6 +10,7 @@ acesso: "https://trajeto-cultural-frontend.vercel.app/"
 roteiro_testes: "https://docs.google.com/document/d/1OVD7QD2SGSnH0svrVxgGPn1LW2chYBni/edit?usp=sharing&ouid=111679497826785810277&rtpof=true&sd=true"
 fonte: "https://elc1074.github.io/2025b/portfolio/group4/"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 tecnologias:
   - "Front-end: ReactJS, JavaScript, HTML, Leaflet"
   - "Back-end: Python, Flask, API Tainacan, Gemini"

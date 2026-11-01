@@ -5,6 +5,7 @@ weight: 90
 draft: false
 capa: "capa.png"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 apresentacao: "https://1drv.ms/p/c/1d63526b6f49858a/EVdzxSYbTExFiJN7_ko5DG4B-w2kYxj4i3xpOxG2saPgAg?e=jvUPdH"
 acesso: "https://mosai.vercel.app/"
 roteiro_testes: "https://docs.google.com/document/d/1R-srf08Tmw_L-eCBVa0kQbuexzCiH_tT/edit"

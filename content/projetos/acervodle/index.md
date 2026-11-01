@@ -10,6 +10,7 @@ acesso: "https://acervodle.vercel.app"
 roteiro_testes: "https://docs.google.com/document/d/1QF9WiWB-enJJbimhTQYUfiXnugHnjXMaoU2WDh0n_j4/edit?usp=sharing"
 fonte: "https://elc1074.github.io/2025b/portfolio/group1/"
 video: "video.mp4"
+previa_video: "previa-video.jpg"
 tecnologias:
   - "Desenvolvimento: React.js, Node.js, MongoDB, OpenStreetMap, API Tainacan e Python"
   - "Deploy: Vercel"

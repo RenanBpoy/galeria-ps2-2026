@@ -3,6 +3,7 @@
 <head>{{ partial "project-head.html" . }}<style>{{ (resources.Get "project.css").Content | safeCSS }}</style></head>
 {{ $p := .Params }}
 {{ $video := partial "project-resource.html" (dict "page" . "file" $p.video) }}
+{{ $poster := partial "project-resource.html" (dict "page" . "file" ($p.previa_video | default $p.capa)) }}
 {{ $hasAccess := or $p.acesso $p.roteiro_testes }}
 {{ $hasDevelopment := or $p.tecnologias $p.repositorios $p.outros_links }}
 <body class="project-detail archive-palette" data-theme="ivorysidebar">
@@ -12,7 +13,7 @@
   <aside class="detail-index"><span class="sidebar-engraving" aria-hidden="true">{{ partial "cat-engraving.html" . }}</span><p class="index-title">{{ .Title }}</p><nav aria-label="Seções do projeto"><a href="#sobre">01 <span>Descrição</span></a>{{ if $hasAccess }}<a href="#acesso">02 <span>Acesso</span></a>{{ end }}{{ if $hasDevelopment }}<a href="#desenvolvimento">03 <span>Desenvolvimento</span></a>{{ end }}{{ with $p.equipe }}<a href="#equipe">04 <span>Equipe</span></a>{{ end }}</nav></aside>
   <div class="detail-main">
     <header class="detail-hero"><h1>{{ .Title }}</h1>{{ with $p.resumo }}<p class="detail-lead">{{ . }}</p>{{ end }}</header>
-    {{ with $video }}<section class="detail-section" id="demonstracao"><div class="video-frame"><video controls preload="none" aria-label="Demonstração do projeto {{ $.Title }}"><source src="{{ . }}" type="video/mp4">Seu navegador não suporta este vídeo. <a href="{{ . }}">Abrir demonstração</a></video></div></section>{{ end }}
+    {{ with $video }}<section class="detail-section" id="demonstracao"><div class="video-frame"><video controls preload="metadata"{{ with $poster }} poster="{{ . }}"{{ end }} aria-label="Demonstração do projeto {{ $.Title }}"><source src="{{ . }}" type="video/mp4">Seu navegador não suporta este vídeo. <a href="{{ . }}">Abrir demonstração</a></video></div></section>{{ end }}
     <section class="detail-section" id="sobre"><div class="section-heading"><span>01 /</span><h2>Descrição</h2></div><div class="detail-description">{{ .Content }}</div>{{ with $p.apresentacao }}<p class="detail-presentation">Apresentação: <a href="{{ . }}" target="_blank" rel="noopener noreferrer">link</a></p>{{ end }}</section>
     {{ if $hasAccess }}<section class="detail-section" id="acesso"><div class="section-heading"><span>02 /</span><h2>Acesso</h2></div><div class="access-panel">{{ with $p.acesso }}<p>Link: <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></p>{{ end }}{{ with $p.roteiro_testes }}<p>Roteiro para testes: <a href="{{ . }}" target="_blank" rel="noopener noreferrer">link</a></p>{{ end }}</div></section>{{ end }}
     {{ if $hasDevelopment }}<section class="detail-section" id="desenvolvimento"><div class="section-heading"><span>03 /</span><h2>Desenvolvimento</h2></div><div class="development-grid">
