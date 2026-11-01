@@ -21,21 +21,3 @@ hugo new content --kind projetos projetos/nome-do-projeto/index.md
 Preencha o arquivo e altere `draft` para `false` quando estiver pronto. Também é possível criar a pasta e copiar o conteúdo de `archetypes/projetos.md` para seu `index.md`.
 
 O visual fica em `themes/galeria-ps2/`. Veja também `LEIA-ME.md` para exemplos dos campos e listas.
-
-## Conferir no computador
-
-Use Hugo 0.169.0 ou posterior:
-
-```sh
-hugo server
-```
-
-Abra http://localhost:1313. O botão temporário para ocultar os projetos aparece apenas nessa prévia local.
-
-## Publicar no GitHub Pages
-
-A configuração está em `.github/workflows/hugo-pages.yml`. O envio de alterações para `main` gera e publica o site automaticamente, usando o endereço identificado pelo GitHub Pages. Também é possível iniciar a publicação pela aba **Actions**.
-
-O repositório deve usar **Settings → Pages → Source → GitHub Actions**.
-
-As pastas `public/`, `resources/`, o executável local do Hugo, os comandos `.cmd` e a pasta de exemplo para cópia manual são ignorados pelo Git. A automação instala sua própria cópia do Hugo no Linux.
