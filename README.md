@@ -13,4 +13,7 @@ Site: https://renanbpoy.github.io/galeria-ps2-2026/
 
 Salve as alterações em um commit na branch `main`. O GitHub Pages atualiza automaticamente; o card e a página são gerados sem editar a home.
 
-Os textos gerais da galeria ficam em `content/_index.md` e o visual em `themes/galeria-ps2/`.
+- **Página inicial:** edite [content/_index.md](content/_index.md).
+- **Página Sobre:** edite o conteúdo abaixo do segundo `---` em [content/sobre/index.md](content/sobre/index.md). O GIF fica na mesma pasta.
+
+O visual fica em `themes/galeria-ps2/`.

@@ -3,6 +3,100 @@
 .intro-edition .eyebrow{margin:0;font-size:9px;letter-spacing:1.6px}
 .intro-edition-year{flex:none;font:400 25px/1 var(--heading);letter-spacing:-.5px}
 .intro-main>.intro-description{margin-top:22px}
+
+.intro-title {
+  font: 400 43px/1.05 var(--heading);
+  letter-spacing: -2px;
+  overflow-wrap: anywhere;
+}
+
+.intro-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-block: 22px 12px;
+}
+
+.intro-nav a {
+  padding-block: 6px;
+  color: var(--accent);
+  font-size: 14px;
+  text-underline-offset: 4px;
+}
+
+.intro-nav [aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.about-content {
+  padding: clamp(18px, 4vw, 48px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.about-content > * {
+  max-width: 70ch;
+}
+
+.about-content > * + * {
+  margin-top: 1em;
+}
+
+.about-content :is(h1, h2) {
+  font: 400 clamp(22px, 2vw, 28px)/1.2 var(--heading);
+}
+
+.about-content h2:not(:first-child) {
+  margin-top: 1.4em;
+  padding-top: 1em;
+  border-top: 1px solid var(--line);
+}
+
+.about-content :is(ul, ol) {
+  padding-inline-start: 1.5em;
+}
+
+.about-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-content hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.about-content a {
+  color: var(--accent);
+}
+
+.image-rights h2 {
+  margin-top: 12px;
+  font-size: 1em;
+}
+
+@media (max-width: 800px) {
+  .intro-nav {
+    grid-column: 1 / -1;
+    margin-block: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-title {
+    max-width: 320px;
+  }
+
+  .intro-nav {
+    margin-top: 16px;
+  }
+}
 :root{--bg:#f1eee1;--surface:#fffdf4;--ink:#353c33;--muted:#64705c;--accent:#536749;--secondary:#ccd1b8;--line:#d1d0c3;--radius:3px;--gap:28px;--columns:3;--heading:Georgia,'Times New Roman',serif;--scale:1;--texture-opacity:.4;--texture-size:850px;--plate-repeat:no-repeat;--plate-position:right;--side-image:var(--scan-dog);--side-opacity:.22;--side-size:360px;--side-position:bottom}
 .project .cover>div[role=img]{width:100%;height:100%}
 .detail-description p+p{margin-top:1em}.detail-description ul,.detail-description ol{padding-left:1.4em}.detail-description a{color:var(--accent)}

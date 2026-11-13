@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>{{ partial "project-head.html" . }}</head>
+<body class="archive-palette single-plate" data-theme="ivorysidebar">
+  <div class="exhibition">
+    {{ partial "gallery-sidebar.html" . }}
+    <main class="gallery" aria-label="{{ .Title }}">
+      <article class="about-content">{{ .Content }}</article>
+    </main>
+  </div>
+</body>
+</html>

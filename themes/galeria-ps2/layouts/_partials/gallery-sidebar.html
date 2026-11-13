@@ -1,0 +1,36 @@
+{{ $home := site.Home }}
+<aside class="intro" aria-label="Sobre a disciplina">
+  <div class="intro-inner">
+    <div class="intro-main">
+      <div class="intro-edition">
+        <p class="eyebrow">Mostra semestral</p>
+        {{ with $home.Params.semestre }}<span class="intro-edition-year" aria-label="Semestre {{ . }}">{{ . }}</span>{{ end }}
+      </div>
+      {{ if .IsHome }}<h1>{{ $home.Title }}</h1>{{ else }}<p class="intro-title">{{ $home.Title }}</p>{{ end }}
+      {{ with $home.Params.descricao }}<p class="intro-description">{{ . }}</p>{{ end }}
+    </div>
+    {{ with $home.Params.apresentacoes }}
+    <section class="schedule" aria-labelledby="schedule-title">
+      <h2 class="small-label" id="schedule-title">Apresentações:</h2>
+      <div class="schedule-list">
+        {{ range $index, $item := . }}
+        <div class="schedule-item">
+          <div class="calendar-icon" aria-hidden="true"><span>{{ printf "%02d" (add $index 1) }}</span></div>
+          <div><strong>{{ .data }}</strong>{{ with .local }}<p>{{ . }}</p>{{ end }}</div>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+    <nav class="intro-nav" aria-label="Navegação da galeria">
+      <a href="{{ $home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>Galeria</a>
+      {{ with site.GetPage "/sobre" }}
+      <a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $.RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+      {{ end }}
+    </nav>
+    {{ with $home.Params.instituicao }}
+    <footer class="intro-footer"><div class="intro-rule"></div><p>{{ . }}</p></footer>
+    {{ end }}
+    <span class="sidebar-engraving" aria-hidden="true">{{ partial "cat-engraving.html" . }}</span>
+  </div>
+</aside>

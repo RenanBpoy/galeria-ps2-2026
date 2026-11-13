@@ -7,4 +7,4 @@ theme = 'galeria-ps2'
 disableKinds = ['taxonomy', 'term', 'RSS', 'section']
 
 [params]
-  author = 'Renan'
+  author = 'Renan Bordignon Poy'
